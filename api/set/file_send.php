@@ -16,7 +16,7 @@ class File_send
         string $patch
     )
     {
-        $send = self::file_send($patch, Href_sevices::$href_upload);
+        $send = self::file_send($patch, Href_sevices::$file_href.'putfile.php');
         if($send == false)
             return;
 
@@ -37,10 +37,13 @@ class File_send
             'params' => [
                 'taskId' => Href_sevices::$last__task_id,
                 'files' => [
-                    'guid' => Href_sevices::$last_guid,
-                    'typeAttachId' => 5
+                    [
+                        'guid' => Href_sevices::$last_guid,
+                        'typeAttachId' => 5
+                    ]
                 ]
             ],
+            'id' => 1,
             'jsonrpc' => '2.0'
         ];
 
